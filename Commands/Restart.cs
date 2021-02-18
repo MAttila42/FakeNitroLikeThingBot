@@ -33,7 +33,7 @@ namespace FNLTB.Commands
                     "git pull\n" +
                     "dotnet build -o build\n" +
                     "cd build\n" +
-                    "dotnet GroundedBot.dll";
+                    "dotnet FakeNitroLikeThingBot.dll";
                 var process = new ProcessStartInfo
                 {
                     FileName = "/bin/bash",
