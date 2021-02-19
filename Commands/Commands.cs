@@ -79,7 +79,7 @@ namespace FNLTB.Commands
                     catch (Exception) { }
                     break;
                 case 2:
-                    var foundCommands = commands.Where(x => x.Aliases.Contains(m[1])).ToList();
+                    var foundCommands = commands.Where(x => x.Aliases.Contains(m[1].ToLower())).ToList();
 
                     foreach (var command in foundCommands)
                     {
