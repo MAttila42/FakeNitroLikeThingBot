@@ -11,7 +11,7 @@ namespace FNLTB.Commands
         };
         public static string Description = "A simple yet powerful command to test stuff.";
         public static string[] Usages = { "test [made parameters]" };
-        public static string Permission = "Only the owner can use it.";
+        public static string Permission = "Only the Bot's owner can use it.";
 
         public async static void DoCommand()
         {

@@ -8,7 +8,7 @@ namespace FNLTB.Commands
         public static string[] Aliases = { "restart" };
         public static string Description = "Restart or shutdown the bot. Updates from the Github repository.";
         public static string[] Usages = { "restart [option]" };
-        public static string Permission = "Only the owner can use it.";
+        public static string Permission = "Only the Bot's owner can use it.";
 
         public async static void DoCommand()
         {
