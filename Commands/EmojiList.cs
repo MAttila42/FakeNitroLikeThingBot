@@ -30,7 +30,9 @@ namespace FNLTB.Commands
             string[] m = message.Content.Split();
             var r = new Random();
 
-            var embed = new EmbedBuilder().WithColor(new Color(0xFFDD00));
+            var embed = new EmbedBuilder()
+                .WithColor(new Color(0xFFDD00))
+                .WithFooter("Made by ExAtom");
 
             if (m.Length > 2)
                 await message.Channel.SendMessageAsync("❌ Too many parameters!");
@@ -98,7 +100,6 @@ namespace FNLTB.Commands
                 embed.WithDescription($"[Server Invite]({server.GetInvitesAsync().Result.FirstOrDefault().Url})");
             }
 
-            embed.WithFooter(((SocketGuildChannel)message.Channel).Guild.Name);
             try { await message.Channel.SendMessageAsync(null, embed: embed.Build()); }
             catch (Exception) { }
         }
