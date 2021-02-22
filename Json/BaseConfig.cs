@@ -10,7 +10,6 @@ namespace FNLTB.Json
     class BaseConfig
     {
         public string Token { get; set; }
-        public ulong BotID { get; set; }
         public ulong OwnerID { get; set; }
         public ulong[] Terminals { get; set; }
         public ulong[] Backups { get; set; }

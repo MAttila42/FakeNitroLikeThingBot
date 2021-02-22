@@ -4,6 +4,7 @@ using System.Linq;
 using Discord;
 using Discord.WebSocket;
 using Discord.Webhook;
+using FNLTB.Json;
 
 namespace FNLTB.Events
 {
@@ -30,7 +31,7 @@ namespace FNLTB.Events
                         return;
                 }
                 catch (Exception) { }
-                emote = Program._client.Guilds.SelectMany(x => x.Emotes).FirstOrDefault(x => x.Name == i);
+                emote = Program._client.Guilds.Where(x => x.Name.Contains("Emojis") && x.OwnerId == BaseConfig.GetConfig().OwnerID).SelectMany(x => x.Emotes).FirstOrDefault(x => x.Name == i);
                 try { emoteId = emote.Id; }
                 catch (Exception) { emoteId = 0; }
                 if (emote != null)

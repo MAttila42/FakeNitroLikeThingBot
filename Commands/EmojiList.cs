@@ -37,7 +37,7 @@ namespace FNLTB.Commands
             else if (m.Length == 1)
             {
                 embed.WithAuthor(author => { author.WithName("Avaliable emojis"); });
-                foreach (var i in Program._client.Guilds.Where(x => x.Name.Contains("Emojis")).OrderBy(x => x.Name))
+                foreach (var i in Program._client.Guilds.Where(x => x.Name.Contains("Emojis") && x.OwnerId == BaseConfig.GetConfig().OwnerID).OrderBy(x => x.Name))
                 {
                     string emojis = "";
                     for (int j = 0; j < 3; j++)
