@@ -52,6 +52,7 @@ namespace FNLTB.Commands
             commands.Add(new Command("Commands", Commands.Aliases, Commands.Description, Commands.Usages, Commands.Permission));
             commands.Add(new Command("EmojiList", EmojiList.Aliases, EmojiList.Description, EmojiList.Usages, EmojiList.Permission));
             commands.Add(new Command("Ping", Ping.Aliases, Ping.Description, Ping.Usages, Ping.Permission));
+            commands.Add(new Command("Prefix", Prefix.Aliases, Prefix.Description, Prefix.Usages, Prefix.Permission));
             commands.Add(new Command("Restart", Restart.Aliases, Restart.Description, Restart.Usages, Restart.Permission));
             commands.Add(new Command("Test", Test.Aliases, Test.Description, Test.Usages, Test.Permission));
 
@@ -70,6 +71,8 @@ namespace FNLTB.Commands
                     break;
                 case 2:
                     var foundCommands = commands.Where(x => x.Aliases.Contains(m[1].ToLower())).ToList();
+                    if (foundCommands.Count == 0)
+                        return;
 
                     foreach (var command in foundCommands)
                     {
@@ -77,7 +80,7 @@ namespace FNLTB.Commands
                             $"{command.Permission}\n\n" +
                             $"Usage{(command.Usages.Length > 1 ? "s:\n" : ": ")}";
                         foreach (var usage in command.Usages)
-                            content += $"`{usage}`\n";
+                            content += $"`{settings[settings.IndexOf(settings.Find(x => x.ServerID == ((SocketGuildChannel)message.Channel).Guild.Id))].Prefix}{usage}`\n";
                         content += $"\nAliases: ";
                         for (int j = 0; j < command.Aliases.Count(); j++)
                             content += $"`{command.Aliases[j]}`{(j < command.Aliases.Count() - 1 ? ", " : "\n\n")}";

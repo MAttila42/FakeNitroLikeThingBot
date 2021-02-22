@@ -76,6 +76,8 @@ namespace FNLTB
                 EmojiList.DoCommand();
             if (Ping.Aliases.Contains(command) && BotChannel())
                 Ping.DoCommand(false);
+            if (Prefix.Aliases.Contains(command) && BotChannel() && IsAdmin(false))
+                Prefix.DoCommand();
             if (Restart.Aliases.Contains(command) && BotChannel() && IsAdmin(true))
                 Restart.DoCommand();
             if (Test.Aliases.Contains(command) && BotChannel() && IsAdmin(true))
